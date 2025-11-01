@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://www.google.com/favicon.ico">
+  <title>apps work space</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script>
+    // Check for saved user preference, if any, on initial load
+    document.addEventListener('alpine:init', () => {
+      Alpine.store('theme', {
+        dark: window.localStorage.getItem('dark') === 'true',
+
+        toggle() {
+          this.dark = !this.dark;
+          window.localStorage.setItem('dark', this.dark);
+        }
+      });
+    });
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <style>
+    /* Tailwind CSS will handle most of the styling */
+  </style>
+</head>
+
+<body x-data x-bind:class="{'dark': $store.theme.dark}" class="transition-colors duration-300">
+  <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div class="container mx-auto px-4 py-3">
+      <header class="p-4 shadow-md bg-gray-100 dark:bg-gray-800 rounded-full dark:border dark:border-gray-700">
+        <div class="flex justify-between items-center">
+          <a href="https://myaccount.google.com/" target="_blank" class="text-xl font-bold flex items-center"
+            title="ir a Mi Cuenta">
+            <img class="image" data-alt-override="false"
+              alt="El logotipo de Google, que está conformado por la letra &quot;G&quot; en color verde, rojo, amarillo y azul."
+              srcset="https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+              width="38" height="38" fetchpriority=""
+              src="https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s48-fcrop64=1,00000000ffffffff-rw">
+            <span class="ml-2">apps work space</span>
+          </a>
+          <div class="relative group">
+            <button @click="$store.theme.toggle()"
+              class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors duration-300 focus:outline-none"
+              :class="$store.theme.dark ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'">
+              <span class="sr-only">Toggle Dark Mode</span>
+              <span class="inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300"
+                :class="$store.theme.dark ? 'translate-x-6' : 'translate-x-1'"></span>
+            </button>
+            <div
+              class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-max bg-gray-700 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+              Cambiar a modo claro/oscuro
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="p-4">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded dark:border dark:border-gray-600">
+            <h2 class="text-xl font-bold mb-4 text-center">work</h2>
+            <div class="grid grid-cols-2 grid-rows-3 gap-3 h-64">
+
+              <a aria-label="Tareas" href="https://tasks.google.com/tasks/" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-blue-500 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Google Tasks, que está conformado por una marca de verificación azul dentro de un círculo."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/d7/b7/732d26464b5eae0e6f905b8613b3/tasks.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/d7/b7/732d26464b5eae0e6f905b8613b3/tasks.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/d7/b7/732d26464b5eae0e6f905b8613b3/tasks.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Tareas</span>
+              </a>
+
+              <a aria-label="keep" href="https://keep.google.com/" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-yellow-400 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Google Keep, que está conformado por el ícono de una lamparita blanca sobre un fondo amarillo."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/17/af/ac8eb66e4034a86f79437e0dc009/keep.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/17/af/ac8eb66e4034a86f79437e0dc009/keep.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/17/af/ac8eb66e4034a86f79437e0dc009/keep.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">keep</span>
+              </a>
+
+              <a aria-label="Documentos" href="https://docs.google.com/spreadsheets/u/0/" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-green-600 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Hojas de cálculo de Google, que está conformado por una hoja de cálculo verde con una cuadrícula blanca en su interior."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/76/76/46f163464fbd9fb24b99aa1d1ce1/sheets.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/76/76/46f163464fbd9fb24b99aa1d1ce1/sheets.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/76/76/46f163464fbd9fb24b99aa1d1ce1/sheets.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Hojas de cálculo</span>
+              </a>
+
+              <a aria-label="Documentos" href="https://docs.google.com/document/u/0/" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-blue-500 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Documentos de Google, conformado por un documento azul con tres líneas blancas."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/8f/bf/73a00f25403181d79457bebdcf52/docs.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/8f/bf/73a00f25403181d79457bebdcf52/docs.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/8f/bf/73a00f25403181d79457bebdcf52/docs.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Documentos</span>
+              </a>
+
+              <a aria-label="Presentaciones" href="https://docs.google.com/presentation/u/0/" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-yellow-400 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Presentaciones de Google, que está conformado por el ícono de una página amarilla con el contorno blanco de una diapositiva."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/1f/82/f8673b7c495b911e1dd7d54e72f6/slides.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/1f/82/f8673b7c495b911e1dd7d54e72f6/slides.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/1f/82/f8673b7c495b911e1dd7d54e72f6/slides.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Presentaciones</span>
+              </a>
+
+              <a aria-label="Calendario" href="https://calendar.google.com/calendar/u/0/r" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-red-600 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo del Calendario de Google, que está conformado por el ícono de un calendario de varios colores con el número &quot;31&quot; en el centro."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/d3/d1/e8596a9246608f8fbd72597729c8/calendar.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/d3/d1/e8596a9246608f8fbd72597729c8/calendar.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/d3/d1/e8596a9246608f8fbd72597729c8/calendar.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Calendario</span>
+              </a>
+
+            </div>
+          </div>
+
+          <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded dark:border dark:border-gray-600">
+            <h2 class="text-xl font-bold mb-4 text-center">space</h2>
+            <div class="grid grid-cols-2 grid-rows-3 gap-3 h-64">
+
+              <a aria-label="Drive" href="https://drive.google.com/drive/home" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-green-600 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Google Drive, que está conformado por un triángulo verde, amarillo y azul."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/ab/b8/2005061e4a84927cc1d59f7958dd/drive.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/ab/b8/2005061e4a84927cc1d59f7958dd/drive.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/ab/b8/2005061e4a84927cc1d59f7958dd/drive.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Drive</span>
+              </a>
+
+              <a aria-label="Traductor" href="https://translate.google.com/?sl=auto&tl=es&op=translate" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-blue-500 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Google Traductor, que está conformado por un cuadrado azul con la letra &quot;G&quot; de Google en blanco y, a su derecha, un cuadrado blanco con un carácter gris."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/98/9d/0deda77e493ba72a8a1d0c7b7ead/translate.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/98/9d/0deda77e493ba72a8a1d0c7b7ead/translate.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/98/9d/0deda77e493ba72a8a1d0c7b7ead/translate.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Traductor</span>
+              </a>
+
+              <a aria-label="Gmail" href="https://mail.google.com/mail/u/0/#inbox" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-red-600 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Gmail, que está conformado por la letra &quot;M&quot; de varios colores y simboliza el sobre de una carta."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/a4/ac/18b54588403a817f010adddb535f/gmail.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/a4/ac/18b54588403a817f010adddb535f/gmail.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/a4/ac/18b54588403a817f010adddb535f/gmail.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Gmail</span>
+              </a>
+
+              <a aria-label="Fotos" href="https://photos.google.com/" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-yellow-400 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Google Fotos, que está conformado por un molinillo de varios colores."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/f0/07/09fbf78f4a3da5e2362dc2351138/photos.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/f0/07/09fbf78f4a3da5e2362dc2351138/photos.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/f0/07/09fbf78f4a3da5e2362dc2351138/photos.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Fotos</span>
+              </a>
+
+              <a aria-label="Gemini"
+                href="https://gemini.google.com/app?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all"
+                tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-blue-500 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de Gemini, que está conformado por una estrella de cuatro puntas que se funde desde el rojo en la parte superior hasta el azul en la derecha, con toques de naranja, amarillo y verde."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/a4/97/92c1ec494d129f3fb8d7caa91584/gemini-update.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/a4/97/92c1ec494d129f3fb8d7caa91584/gemini-update.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/a4/97/92c1ec494d129f3fb8d7caa91584/gemini-update.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">Gemini</span>
+              </a>
+
+              <a aria-label="YouTube" href="https://www.youtube.com/" tabindex="0"
+                class="bg-white rounded flex pl-3 border-r-4 border-red-600 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+                target="_blank" rel="noopener noreferrer">
+                <img class="image" data-alt-override="false"
+                  alt="El logotipo de YouTube, que está conformado por un rectángulo rojo con el ícono de un botón de reproducción blanco en su interior."
+                  srcset="https://www.gstatic.com/marketing-cms/assets/images/58/3f/ac28ee8b450e9e21be9d1626708a/youtube.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/58/3f/ac28ee8b450e9e21be9d1626708a/youtube.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                  width="38" height="38" fetchpriority=""
+                  src="https://www.gstatic.com/marketing-cms/assets/images/58/3f/ac28ee8b450e9e21be9d1626708a/youtube.png=s48-fcrop64=1,00000000ffffffff-rw">
+                <span class="ml-2 text-slate-600 dark:text-slate-100">YouTube</span>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="justify-center items-center text-center my-7">
+          <button onclick="window.open('https://www.google.com.mx/index.html', '_blank')"
+            class="bg-blue-500 hover:bg-blue-700 text-white dark:text-slate-100 font-bold py-2 px-4 rounded-full dark:bg-blue-700 dark:hover:bg-blue-500">
+            Ir a Google &#10138;
+          </button>
+          <button
+            onclick="window.open('https://www.google.com/search?q=&sca_esv=3aa3359d46e30aa6&sxsrf=AE3TifM5Tzp_S8ZNDFfp3SpI02iNn72N7Q%3A1760994213011&source=hp&ei=pKP2aKrQO5u4kPIP96Wh-Ag&iflsig=AOw8s4IAAAAAaPaxtR_llh9m4OcZ3PFvyJehslPKrh1K&aep=22&udm=50&ved=0ahUKEwiqspDU1rOQAxUbHEQIHfdSCI8QteYPCBE&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz', '_blank')"
+            class="bg-blue-500 hover:bg-blue-700 text-white dark:text-slate-100 font-bold py-2 px-4 rounded-full ml-2 dark:bg-blue-700 dark:hover:bg-blue-500">
+            Ir a Modo IA &#10138;
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-gray-100 dark:bg-gray-700 p-4 rounded dark:border dark:border-gray-600">
+
+          <a aria-label="WhatsApp" href="https://web.whatsapp.com/" tabindex="0"
+            class="bg-white rounded flex pl-3 border-r-4 py-4 border-green-600 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+            target="_blank" rel="noopener noreferrer">
+            <img class="XNo5Ab"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAUVBMVEVHcEz////////////////////////////////////////////////r+u/Z9uL1/fhe24gAzUkf02Sh6LZ+4Z1t3pHG8dMC0Viw7MKQ5apL2HsasPsVAAAADXRSTlMANIfD7f8zYGIW4N4+qsA5tgAAAQdJREFUeAF9k4UWgzAMRYM8vG6j//+hKyfQ+S6WEq9QpWm7Hui7dqB3xh6VfnpRzQteWGeqbPhg+6Or2hkVIVWVOfIKRmpTsA7MQoUJjDchCiVdSpJ/jEXZs6iTrFYs9UQD/3FG4MIn/jbUsmBukNXX7jhoqcPBLR2BPVBHhe5MGcKhDGAE5+iJh3kHoolg1FnSqdRFiZAEIJ6VHHbPKOR0iyYISKM4LBcUeehNskbCZy7oasV6LsX5CHEmb6k5lQ4XymoWBuKkwkjpFGdImXX9sUG47WSS0bvz1uxgJiosALyPCtHnrNm/sL4u9ivz/23yf4Mx84oXlpmemZ439UjvDNdxaOjiDkjvFKpa/ei0AAAAAElFTkSuQmCC"
+              style="height:26px;width:26px" alt="" data-csiid="wvH3aKmtGO2vur8Py7mX4Qw_3" data-atf="1"
+              data-iml="1761079746704">
+            <span class="ml-2 text-slate-600 dark:text-slate-100">WhatsApp</span>
+          </a>
+
+          <a aria-label="Github Copilot" href="https://github.com/copilot/" tabindex="0"
+            class="bg-white rounded flex pl-3 border-r-4 py-4 border-gray-700 dark:border-slate-100 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+            target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" focusable="false" class="octicon octicon-mark-github" viewBox="0 0 24 24" width="32"
+              height="32" fill="currentColor" display="inline-block" overflow="visible"
+              style="vertical-align: text-bottom;">
+              <path
+                d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z">
+              </path>
+            </svg>
+            <span class="ml-2 text-slate-600 dark:text-slate-100">Github Copilot</span>
+          </a>
+
+          <a aria-label="Reddit" href="https://www.reddit.com/" tabindex="0"
+            class="bg-white rounded flex pl-3 border-r-4 py-4 border-red-600 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+            target="_blank" rel="noopener noreferrer">
+            <img class="XNo5Ab"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAllBMVEVHcEz/RQD/RQD/RQD/RQD/RQD/RQD/RQD/RQD/RQD/RQD/RQD/RgD/RQD+////RQD/PAD/NQD+QgDP3+fb6e7n8PLx9vcKEhX0/f/L1tz+jXL718/+XCr4+vv0e1/olIP6pJDi3N3PqqbfNAn7cU//VgP+9vQyODv1bEb+49rdzc3/v66xu77IXlHlXDhqcHKsLABrLBlRGkQ3AAAADnRSTlMAwkSK1tA47GYdh31HPrF7ujQAAAF5SURBVCiRbZOHcoMwDIahyYUkbW3Z2GbvlT3e/+UqQSCkiY4D5A9bvwaWNdpqYTucO/ZiZf23NYLRnPUL2iyfiEvJl5sn+5khLuJacP41sq85gyNje5joZs7kLWCMhUiHk+fxKu9+YswnuOx1zvd5FZRKHYAc0jzlIAFudwCoU9RLGWHuJEIIABHnx7I85jE6eOHyylqg+DCKwnDPHrYPycd0tpbNIWcfLAduU8hPjDEKymXs07spi2GxKA09/FhyCwNrkzB2FruEFpMqPtO3GgEeC5lKmK4aGRGMRFNplqgM8Fgb1eZ+4l8a3hJseXNBN0e1NqUid9oYE7VDzDYyiTE7San0RSi0Nv6p6zyv606+0boYikC5QOoqpZXXm9JaqRT68vWFh8x1XRVcPe8aKHzN4FH4vmUiDdwgwP10D1JUM7RsaDbw7FDgHrc4ZLzv2GOMfof5gLhO0zoG6Bs2DtH3NHYgh1a+s5lNo7l+Q7OhfoWOvX3+Dn+Ini8glo+XBwAAAABJRU5ErkJggg=="
+              style="height:26px;width:26px" alt="" data-csiid="DvP3aIDVN9_OkPIP2rSBqAc_2" data-iml="1761080079226"
+              data-atf="1">
+            <span class="ml-2 text-slate-600 dark:text-slate-100">Reddit</span>
+          </a>
+
+          <a aria-label="Atlassian" href="https://id.atlassian.com/login" tabindex="0"
+            class="bg-white rounded flex pl-3 border-r-4 py-4 border-blue-500 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+            target="_blank" rel="noopener noreferrer"> <!-- https://id.atlassian.com/login?application=bitbucket -->
+            <img class="XNo5Ab"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAYFBMVEVHcEwffPciefcmhP8kgv0mhP8lhP8lg/8lg/4if/smhP8lgv4mhP8hevYmhP8mhP8MYtwBVM4mhP8OZN8JX9oCV9IFWdQTbOYQZ+Ilg/0VbegVbukadfAffPcmhP8if/q34KiNAAAAIHRSTlMASAnVaP/5W8jl8nO9HpinW8qA3/+h9nn/tWf///82g/gHqngAAACySURBVHgBvdEFDsQwEARB0zjMzP//5YV5xZcVu9QysS+Gc9qElDQqaINEEzAFtaMF2A6Bjgbgeu/ojwZbvWMArCmJ2qCQSMPIixcEv5tI0syxF5TiHqZpXsg1ve+alGmaVSvKW1iWZZrU9lsqkqYZmQd42VW1bTNy7a2o1Sk0u3bigq27nj/H0V038oh76mzmmQAm5evjT6m3otKY1RoXehvXF+7jeQZDjNsb8TI9+9v8ADB6C0XGahR7AAAAAElFTkSuQmCC"
+              style="height:26px;width:26px" alt="" data-csiid="K_T3aPYKm6WQ8g-BztWoAw_4" data-atf="4"
+              data-iml="1761080363416">
+            <span class="ml-2 text-slate-600 dark:text-slate-100">Atlassian Bitbucket Jira</span>
+          </a>
+
+          <a aria-label="Microsoft" href="https://copilot.microsoft.com/" tabindex="0"
+            class="bg-white rounded flex pl-3 border-r-4 py-4 border-pink-400 dark:border-slate-100 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+            target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-6">
+              <path
+                d="M22.9253 4.97196C22.5214 3.79244 21.4126 3 20.1658 3L18.774 3C17.3622 3 16.1532 4.01106 15.9033 5.40051L14.4509 13.4782L15.0163 11.5829C15.3849 10.347 16.5215 9.5 17.8112 9.5L23.0593 9.5L25.3054 10.809L27.4705 9.5H26.5598C25.313 9.5 24.2042 8.70756 23.8003 7.52804L22.9253 4.97196Z"
+                fill="url(#paint0_radial_262034_2117)"></path>
+              <path
+                d="M9.39637 27.0147C9.79613 28.2011 10.9084 29 12.1604 29H14.5727C16.1772 29 17.4805 27.704 17.4893 26.0995L17.5315 18.4862L16.9699 20.4033C16.6058 21.6461 15.4659 22.5 14.1708 22.5H8.88959L6.96437 21.0214L4.88007 22.5H5.78013C7.03206 22.5 8.14435 23.299 8.54411 24.4853L9.39637 27.0147Z"
+                fill="url(#paint1_radial_262034_2117)"></path>
+              <path
+                d="M19.7501 3H8.81266C5.68767 3 3.81268 7.08916 2.56269 11.1783C1.08177 16.0229 -0.856044 22.5021 4.75017 22.5021H9.66051C10.9615 22.5021 12.105 21.6415 12.4657 20.3915C13.2784 17.5759 14.7501 12.4993 15.9014 8.65192C16.4758 6.73249 16.9543 5.08404 17.6886 4.05749C18.1003 3.48196 18.7864 3 19.7501 3Z"
+                fill="url(#paint2_radial_262034_2117)"></path>
+              <path
+                d="M19.7501 3H8.81266C5.68767 3 3.81268 7.08916 2.56269 11.1783C1.08177 16.0229 -0.856044 22.5021 4.75017 22.5021H9.66051C10.9615 22.5021 12.105 21.6415 12.4657 20.3915C13.2784 17.5759 14.7501 12.4993 15.9014 8.65192C16.4758 6.73249 16.9543 5.08404 17.6886 4.05749C18.1003 3.48196 18.7864 3 19.7501 3Z"
+                fill="url(#paint3_linear_262034_2117)"></path>
+              <path
+                d="M12.2478 29H23.1852C26.3102 29 28.1852 24.9103 29.4352 20.8207C30.9161 15.9755 32.854 9.49548 27.2477 9.49548H22.3375C21.0364 9.49548 19.893 10.3562 19.5322 11.6062C18.7196 14.4221 17.2479 19.4994 16.0965 23.3474C15.5221 25.2671 15.0436 26.9157 14.3093 27.9424C13.8976 28.518 13.2115 29 12.2478 29Z"
+                fill="url(#paint4_radial_262034_2117)"></path>
+              <path
+                d="M12.2478 29H23.1852C26.3102 29 28.1852 24.9103 29.4352 20.8207C30.9161 15.9755 32.854 9.49548 27.2477 9.49548H22.3375C21.0364 9.49548 19.893 10.3562 19.5322 11.6062C18.7196 14.4221 17.2479 19.4994 16.0965 23.3474C15.5221 25.2671 15.0436 26.9157 14.3093 27.9424C13.8976 28.518 13.2115 29 12.2478 29Z"
+                fill="url(#paint5_linear_262034_2117)"></path>
+              <defs>
+                <radialGradient id="paint0_radial_262034_2117" cx="0" cy="0" r="1"
+                  gradientTransform="matrix(-7.37821 -8.55084 -7.96607 7.17216 25.5747 13.5466)"
+                  gradientUnits="userSpaceOnUse">
+                  <stop offset="0.0955758" stop-color="#00AEFF"></stop>
+                  <stop offset="0.773185" stop-color="#2253CE"></stop>
+                  <stop offset="1" stop-color="#0736C4"></stop>
+                </radialGradient>
+                <radialGradient id="paint1_radial_262034_2117" cx="0" cy="0" r="1"
+                  gradientTransform="matrix(6.61516 7.92888 7.80904 -6.47171 7.1753 21.9482)"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FFB657"></stop>
+                  <stop offset="0.633728" stop-color="#FF5F3D"></stop>
+                  <stop offset="0.923392" stop-color="#C02B3C"></stop>
+                </radialGradient>
+                <radialGradient id="paint2_radial_262034_2117" cx="0" cy="0" r="1"
+                  gradientTransform="matrix(-0.990905 -17.2799 98.0282 -5.51056 8.54161 22.4952)"
+                  gradientUnits="userSpaceOnUse">
+                  <stop offset="0.03" stop-color="#FFC800"></stop>
+                  <stop offset="0.31" stop-color="#98BD42"></stop>
+                  <stop offset="0.49" stop-color="#52B471"></stop>
+                  <stop offset="0.843838" stop-color="#0D91E1"></stop>
+                </radialGradient>
+                <linearGradient id="paint3_linear_262034_2117" x1="9.52186" y1="3" x2="10.3572" y2="22.5029"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3DCBFF"></stop>
+                  <stop offset="0.246674" stop-color="#0588F7" stop-opacity="0"></stop>
+                </linearGradient>
+                <radialGradient id="paint4_radial_262034_2117" cx="0" cy="0" r="1"
+                  gradientTransform="matrix(-8.64067 24.4636 -29.4075 -10.797 27.8096 7.58585)"
+                  gradientUnits="userSpaceOnUse">
+                  <stop offset="0.0661714" stop-color="#8C48FF"></stop>
+                  <stop offset="0.5" stop-color="#F2598A"></stop>
+                  <stop offset="0.895833" stop-color="#FFB152"></stop>
+                </radialGradient>
+                <linearGradient id="paint5_linear_262034_2117" x1="28.6736" y1="8.30469" x2="28.6627" y2="13.617"
+                  gradientUnits="userSpaceOnUse">
+                  <stop offset="0.0581535" stop-color="#F8ADFA"></stop>
+                  <stop offset="0.708063" stop-color="#A86EDD" stop-opacity="0"></stop>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="ml-2 text-slate-600 dark:text-slate-100">Microsoft Copilot</span>
+          </a>
+
+          <a aria-label="ChatGPT" href="https://chatgpt.com/" tabindex="0"
+            class="bg-white rounded flex pl-3 border-r-4 py-4 border-gray-700 dark:border-slate-100 dark:bg-slate-600 items-center hover:scale-105 transition-transform duration-200"
+            target="_blank" rel="noopener noreferrer">
+            <img class="XNo5Ab" id="tsuid_Sgr4aKiYNrSzqtsPieaBuAQ_38"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACRElEQVRYhe3WS4iOURgH8J/raEqhmJSVy5iSWbiklIUViyk2LospSSZsLBSRbFiZDQvGihRCxoShRNm4pJFyv5SQUhZCiJI+i/N8zfH6Rr7PJ5v5b85z/ud5zvN/zznPeQ+DGMR/xpAaYtqwEk14ii7cr6eogdCA1yjhCo7gcfRPYSbWoR3j/oWAr7hRge8MESV8yexL9Uy+HZ8LXAteRbIdhbHZ+IQP9UjeFJNtiP4o9ETic9LWlDGsEFvCvr9Jflz/ki4I7g7eSitQRivehN/OjF8bXE04G8FTCgIeSVtCWo2yXw9WZYIXozHssdUmn5slVxDwIARsyZKdLsTvCf5JtCOrFXDMzyc+F3ArS7wUS7J+WxYzBleDn1GtgPtSeeUC5od9F70VYs6E30NMyvgDfnMOhg7Av8OEAteaxfRViLmFF3gmlef+4NdFu3kgEZWwyc+qy3t6OZIU615wD8NuL8QfwrVqBIgJDmb9iVIJlnC+gv8F3At7TkFApxr+F80xSR/GZ/wifIux5Vih/xDeDp95BQE3cbRaAQ0xyaNouwrj3VnijdgavkUB08KeVa2AMRHYiIX6v7pDWu6SdFOWr99t0t8xF9ASbXe1ycsoYU3WL18+zzE141vxXjojuYASDteaHPb6/V3eiIvhcwIjgu/AR3V6F7yV3gLzC/yuSPwMkwtjn6QtqRt69S/p98zeXcG3z69vh7pgNJZhNaZLZVU+DydxPfovMfxPJ63lUZqjGeulUnsjVUVdn2KDGMQ/xw/hZKtMGA891gAAAABJRU5ErkJggg=="
+              style="height:26px;width:26px" alt="" data-deferred="3" data-csiid="Sgr4aKiYNrSzqtsPieaBuAQ_1"
+              data-ims="1761086027156" data-atf="1" data-iml="1761086027213">
+            <span class="ml-2 text-slate-600 dark:text-slate-100">ChatGPT</span>
+          </a>
+
+        </div>
+
+        <div class="flex justify-center items-center my-7">
+          <button onclick="window.open('https://web.niplito.com.mx:8443/intranet4/Intranet_index.php', '_blank')"
+            class="bg-blue-500 hover:bg-blue-700 text-white dark:text-slate-100 font-bold py-2 px-4 rounded-full dark:bg-blue-700 dark:hover:bg-blue-500 flex items-center h-12">
+            <!-- <img src="https://lh3.googleusercontent.com/proxy/kk5-2ObRdRZyLMHKNGbD3LXJrkAv6_h0F9bzv76I5vu5QVPotlXwg8dbIPcp7m0OArUDBkYG6dbBYaQedGcnpWudGUIyTtOXw-MDzqW58fJqECVUWBVM1YH7Yg" alt="ForoDev Icon" class="h-full w-auto mr-2"> -->
+            Ir a ForoDev &#10138;
+          </button>
+          <button onclick="window.open('file:///var/docker/niplito-prod/php/laravel/docs/api/index.html', '_blank')"
+            class="bg-blue-500 hover:bg-blue-700 text-white dark:text-slate-100 font-bold py-2 px-4 rounded-full ml-2 dark:bg-blue-700 dark:hover:bg-blue-500 flex items-center h-12">
+            <!-- <img src="https://lh3.googleusercontent.com/proxy/kk5-2ObRdRZyLMHKNGbD3LXJrkAv6_h0F9bzv76I5vu5QVPotlXwg8dbIPcp7m0OArUDBkYG6dbBYaQedGcnpWudGUIyTtOXw-MDzqW58fJqECVUWBVM1YH7Yg" alt="ForoDev Icon" class="h-full w-auto mr-2"> -->
+            Ir a Phpdocs &#10138;
+          </button>
+          <button onclick="window.open('https://webniplito.dyndns.org/login2/', '_blank')"
+            class="bg-blue-500 hover:bg-blue-700 text-white dark:text-slate-100 font-bold py-2 px-4 rounded-full ml-2 dark:bg-blue-700 dark:hover:bg-blue-500 flex items-center h-12">
+            <!-- <img src="https://pbs.twimg.com/profile_images/991809474590531584/ndg6dxuV_400x400.jpg" alt="ForoDev Icon" class="h-full w-auto mr-2"> -->
+            Ir a Portal Niplito &#10138;
+          </button>
+        </div>
+
+      </main>
+      <footer>
+
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>

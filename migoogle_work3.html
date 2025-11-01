@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://www.google.com/favicon.ico">
+    <title>apps work space</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script>
+        // Declarar el array de componentes
+        const componentes = [
+            { title: 'Componente 1', content: 'Contenido del componente 1' },
+            { title: 'Componente 2', content: 'Contenido del componente 2' },
+            { title: 'Componente 3', content: 'Contenido del componente 3' }
+        ];
+
+        // Escuchar el evento alpine:init para inicializar stores o lógica global
+        document.addEventListener('alpine:init', () => {
+
+            Alpine.store('theme', {
+                dark: window.localStorage.getItem('dark') === 'true',
+
+                toggle() {
+                    this.dark = !this.dark;
+                    window.localStorage.setItem('dark', this.dark);
+                }
+            });
+
+            Alpine.store('app', {
+                components: componentes,
+                initialized: false,
+            });
+        });
+
+        
+        document.addEventListener('alpine:initialized', () => {
+            console.log('initialized');
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+
+<body x-data x-bind:class="{'dark': $store.theme.dark}" class="transition-colors duration-300">
+    <div class="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <div class="container mx-auto px-4 py-3">
+            <header class="p-4 shadow-md bg-gray-100 dark:bg-gray-800 rounded-full dark:border dark:border-gray-700">
+                <div class="flex justify-between items-center">
+                    <a href="https://myaccount.google.com/" target="_blank" class="text-xl font-bold flex items-center"
+                        title="ir a Mi Cuenta">
+                        <img class="image" data-alt-override="false"
+                            alt="El logotipo de Google, que está conformado por la letra &quot;G&quot; en color verde, rojo, amarillo y azul."
+                            srcset="https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
+                            width="38" height="38" fetchpriority=""
+                            src="https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s48-fcrop64=1,00000000ffffffff-rw">
+                        <span class="ml-2">apps work space</span>
+                    </a>
+                    <div class="relative group">
+                        <button @click="$store.theme.toggle()"
+                            class="relative inline-flex items-center h-6 rounded-full w-11 transition-colors duration-300 focus:outline-none"
+                            :class="$store.theme.dark ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'">
+                            <span class="sr-only">Toggle Dark Mode</span>
+                            <span
+                                class="inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-300"
+                                :class="$store.theme.dark ? 'translate-x-6' : 'translate-x-1'"></span>
+                        </button>
+                        <div
+                            class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-max bg-gray-700 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                            Cambiar a modo claro/oscuro
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main x-data="{ components: $store.app.components }" x-init="console.log('Componente inicializado')">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <template x-for="component in components" :key="component.title">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded dark:border dark:border-gray-600">
+                            <h2 class="text-xl font-bold mb-2" x-text="component.title"></h2>
+                            <p x-text="component.content"></p>
+                        </div>
+                    </template>
+                </div>
+            </main>
+
+            <footer>
+
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
