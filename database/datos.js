@@ -89,7 +89,7 @@ const linksData = [
     },
     {
         id: 'Gemini',
-        href: 'https://gemini.google.com/app?utm_source=app_launcher&utm_medium=owned&utm_campaign=base_all',
+        href: 'https://gemini.google.com/app',
         label: 'Gemini',
         img: '<img src="./images/Google_Gemini_icon_2025.svg" alt="" class="spinY" >',
         text: 'Gemini',
