@@ -25,9 +25,9 @@ document.addEventListener('alpine:init', () => {
     });
 
     Alpine.data('linkList', () => ({
-        appswork: linksData.slice(0, 7).sort(() => Math.random() - 0.5),
-        appspace: linksData.slice(7, 13).sort(() => Math.random() - 0.5),
-        appothers: linksData.slice(13, linksData.length).sort(() => Math.random() - 0.5),
+        appswork: linksData.slice(0, 8).sort(() => Math.random() - 0.5),
+        appspace: linksData.slice(8, 14).sort(() => Math.random() - 0.5),
+        appothers: linksData.slice(14, linksData.length).sort(() => Math.random() - 0.5),
     }))
 
     Alpine.data('buttonList', () => ({

@@ -56,6 +56,14 @@ const linksData = [
         border: 'border-white-400'
     },
     {
+        id: 'Google Dibujos',
+        href: 'https://docs.google.com/drawings/',
+        label: 'Google Dibujos',
+        img: '<img src="./images/icons8-dibujo-google.svg" alt="" class="spinY" >',
+        text: 'Google Dibujos',
+        border: 'border-white-400'
+    },
+    {
         id: 'Drive',
         href: 'https://drive.google.com/drive/home',
         label: 'Drive',
