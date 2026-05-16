@@ -1,4 +1,4 @@
-const linksButton = [
+var linksButton = (typeof window !== 'undefined' && window.linksButton) ? window.linksButton : [
     {
         id: 'google',
         link: 'https://www.google.com.mx/index.html',
@@ -30,3 +30,7 @@ const linksButton = [
         class: 'ml-2'
     }
 ];
+
+if (typeof window !== 'undefined') {
+    window.linksButton = linksButton;
+}
