@@ -8,7 +8,6 @@
     <title>apps work space</title>
     <script src="js/alpine_3.x.x.min.js" defer></script>
     <script src="database/datos.js"></script>
-    <script src="database/datos2.js"></script>
     <script src="js/script.js"></script>
     <script src="css/tailwind_3.4.17.min.css"></script>
     <script>
@@ -38,10 +37,13 @@
     </div>
 
     <div :class="{ 'pointer-events-none blur-sm': isLocked }">
-        <div class="app-shell min-h-screen text-slate-900 dark:text-slate-100">
-        <div class="container mx-auto px-4 py-6">
+        <div class="min-h-screen text-slate-900 
+        bg-gradient-to-b from-white via-pink-100 to-indigo-200 
+        dark:bg-gradient-to-t dark:from-blue-900 dark:via-slate-900 dark:to-slate-900 
+        dark:text-slate-100">
+        <div class="container mx-auto px-4 py-3">
 
-            <header class="app-header p-4 rounded-2xl mb-6">
+            <header class="p-4 rounded-full mb-5">
                 <div class="flex justify-between items-center">
                     <a href="https://myaccount.google.com/" target="_blank" class="text-xl font-bold flex items-center"
                         title="ir a Mi Cuenta">
@@ -50,7 +52,7 @@
                             srcset="https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s48-fcrop64=1,00000000ffffffff-rw 1x,https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s96-fcrop64=1,00000000ffffffff-rw 2x"
                             width="38" height="38" fetchpriority=""
                             src="https://www.gstatic.com/marketing-cms/assets/images/bc/1a/a310779347afa1927672dc66a98d/g.png=s48-fcrop64=1,00000000ffffffff-rw">
-                        <span class="ml-2">apps work</span>
+                        <span class="ml-2">apps work space</span>
                     </a>
                     <div class="relative group">
                         <button @click="$store.theme.toggle()"
@@ -68,58 +70,64 @@
                     </div>
                 </div>
             </header>
-            <main class="space-y-8">
+            <main class="p-4">
 
-                <section x-data="companyTabs" x-init="init()"
-                    class="apps-panel p-4 sm:p-6">
-
-                    <div class="ai-top-zone" x-show="aiLinks.length > 0">
-                        <div class="loose-apps-grid loose-apps-grid-center" role="list" aria-label="Apps AI">
-                            <template x-for="(link, index) in aiLinks" :key="`ai-${link.href || link.id || index}`">
-                                <a :href="link.href" :aria-label="link.label" tabindex="0"
-                                    @click.prevent
-                                    @dblclick.prevent="window.open(link.href, '_blank')"
-                                    :title="link.text"
-                                    class="tab-icon-link loose-app-item"
-                                    role="listitem"
+                <div x-data="linkList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-transparent dark:bg-transparent p-4 rounded">
+                        <h2 class="text-xl font-bold mb-4 text-center">work</h2>
+                        <div class="grid grid-cols-2 grid-rows-4 gap-3 h-80">
+                            <template x-for="link in appswork" :key="link.id">
+                                <a x-html="`${link.img} <span class='ml-2 text-slate-600 dark:text-slate-100' x-text='link.text'></span>`"
+                                    :href="link.href" :aria-label="link.label" tabindex="0"
+                                    class="bg-white rounded flex pl-3 dark:bg-slate-800 items-center hover:scale-105 transition-transform duration-200"
                                     target="_blank" rel="noopener noreferrer">
-                                    <div x-html="link.img" class="tab-app-icon w-16 h-16 flex items-center justify-center"></div>
-                                    <span class="app-box-label" x-text="link.text"></span>
                                 </a>
                             </template>
                         </div>
                     </div>
-
-                    <div class="loose-apps-grid" role="list" aria-label="Apps">
-                        <template x-for="(link, index) in links" :key="`app-${link.href || link.id || index}`">
-                            <a :href="link.href" :aria-label="link.label" tabindex="0"
-                                @click.prevent
-                                @dblclick.prevent="window.open(link.href, '_blank')"
-                                :title="link.text"
-                                class="tab-icon-link loose-app-item"
-                                role="listitem"
-                                target="_blank" rel="noopener noreferrer">
-                                <div x-html="link.img" class="tab-app-icon w-16 h-16 flex items-center justify-center"></div>
-                                <span class="app-box-label" x-text="link.text"></span>
-                            </a>
-                        </template>
+                    <div class="bg-transparent dark:bg-transparent p-4 rounded">
+                        <h2 class="text-xl font-bold mb-4 text-center">space</h2>
+                        <div class="grid grid-cols-2 grid-rows-4 gap-3 h-80">
+                            <template x-for="link in appspace" :key="link.id">
+                                <a x-html="`${link.img} <span class='ml-2 text-slate-600 dark:text-slate-100' x-text='link.text'></span>`"
+                                    :href="link.href" :aria-label="link.label" tabindex="0"
+                                    class="bg-white rounded flex pl-3 dark:bg-slate-800 items-center hover:scale-105 transition-transform duration-200"
+                                    target="_blank" rel="noopener noreferrer">
+                                </a>
+                            </template>
+                        </div>
                     </div>
-                </section>
+                </div>
 
-                <div x-data="buttonList" class="flex flex-wrap justify-center items-center gap-3 my-8 pt-2">
+                <div x-data="buttonList" class="justify-center items-center text-center my-8 pt-4">
                     <template x-for="button in buttonsgoogle" :key="button.id">
                         <button @click="window.open(button.link, '_blank')"
-                            class="quick-btn"
+                            class="bg-blue-700/50 text-white font-bold py-2 px-4 rounded-full dark:text-slate-100 dark:bg-blue-900/50"
                             x-bind:class="button.class">
                             <span x-html="button.text"></span>
                         </button>
                     </template>
                 </div>
 
-                <div x-data="buttonList" class="flex flex-wrap justify-center items-center gap-3 my-8">
+                <div x-data="linkList"
+                    class="grid grid-cols-1 md:grid-cols-6 gap-4 bg-transparent dark:bg-transparent p-4 rounded">
+                    <template x-for="link in appothers" :key="link.id">
+                        <a :href="link.href" target="_blank" rel="noopener noreferrer" class="flip-card h-24" :aria-label="link.label" tabindex="0">
+                            <div class="flip-card-inner rounded">
+                                <div x-html="link.img" class="flip-card-front bg-transparent dark:bg-transparent rounded flex items-center justify-center">
+                                </div>
+                                <div class="flip-card-back bg-white/75 dark:bg-blue-950/75 rounded flex items-center justify-center dark:shadow">
+                                    <span class="text-slate-600 dark:text-slate-100" x-text="link.text"></span>
+                                </div>
+                            </div>
+                        </a>
+                    </template>
+                </div>
+
+                <div x-data="buttonList" class="flex justify-center items-center my-8">
                     <template x-for="button in buttonsdev" :key="button.id">
                         <button @click="window.open(button.link, '_blank')"
-                            class="quick-btn"
+                            class="bg-blue-700/50 text-white font-bold py-2 px-4 rounded-full dark:text-slate-100 dark:bg-blue-900"
                             x-bind:class="button.class">
                             <span x-html="button.text"></span>
                         </button>

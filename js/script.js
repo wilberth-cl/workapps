@@ -12,23 +12,58 @@ document.addEventListener('alpine:init', () => {
             window.localStorage.setItem('dark', this.dark);
             // Forzar el reinicio de la animación del encabezado
             const header = document.querySelector('header');
-            // 1. Quitar la animación actual
-            header.style.animation = 'none';
-            // 2. Forzar un "reflow" para que el navegador aplique el cambio
-            void header.offsetWidth;
-            // 3. Volver a aplicar la animación para que se reinicie
-            header.style.animation = 'gradientShift 5s ease';
+            if (header) {
+                // 1. Quitar la animación actual
+                header.style.animation = 'none';
+                // 2. Forzar un "reflow" para que el navegador aplique el cambio
+                void header.offsetWidth;
+                // 3. Volver a aplicar la animación para que se reinicie
+                header.style.animation = 'gradientShift 5s ease';
+            }
+
             if (this.dark) {
-                document.getElementById('myIcon').querySelector('circle').setAttribute('fill', 'blue');
+                const iconCircle = document.querySelector('#myIcon circle');
+                if (iconCircle) {
+                    iconCircle.setAttribute('fill', 'blue');
+                }
             }
         }
     });
 
-    Alpine.data('linkList', () => ({
-        appswork: linksData.slice(0, 8).sort(() => Math.random() - 0.5),
-        appspace: linksData.slice(8, 14).sort(() => Math.random() - 0.5),
-        appothers: linksData.slice(14, linksData.length).sort(() => Math.random() - 0.5),
-    }))
+    Alpine.data('companyTabs', () => ({
+        aiLinks: [],
+        links: [],
+
+        init() {
+            const uniqueLinks = [];
+            const seen = new Set();
+
+            for (const link of linksData) {
+                const hrefKey = String(link?.href || '').trim().toLowerCase();
+                const idKey = String(link?.id || '').trim().toLowerCase();
+                const key = hrefKey || `id:${idKey}`;
+
+                if (!key || seen.has(key)) {
+                    continue;
+                }
+
+                seen.add(key);
+                uniqueLinks.push(link);
+            }
+
+            this.aiLinks = uniqueLinks.filter((link) => String(link.type || '').toLowerCase() === 'ai');
+            this.links = uniqueLinks.filter((link) => String(link.type || '').toLowerCase() !== 'ai');
+        },
+
+        hostname(url) {
+            try {
+                const parsed = new URL(url, window.location.href);
+                return parsed.hostname || parsed.pathname;
+            } catch (error) {
+                return url;
+            }
+        }
+    }));
 
     Alpine.data('buttonList', () => ({
         buttonsgoogle: linksButton.slice(0, 2),

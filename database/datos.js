@@ -5,7 +5,9 @@ const linksData = [
         label: 'Tareas',
         img: '<img src="./images/Google_Tasks_2021.svg" alt="" class="spinY" >',
         text: 'Tareas',
-        border: 'border-blue-500'
+        border: 'border-blue-500',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'keep',
@@ -13,7 +15,9 @@ const linksData = [
         label: 'keep',
         img: '<img src="./images/Google_Keep_2020_Logo.svg" alt="" class="spinY" >',
         text: 'keep',
-        border: 'border-yellow-400'
+        border: 'border-yellow-400',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Hojas de cálculo',
@@ -21,7 +25,9 @@ const linksData = [
         label: 'Hojas de cálculo',
         img: '<img src="./images/google-sheets-logo-icon.svg" alt="" class="spinY" >',
         text: 'Hojas de cálculo',
-        border: 'border-green-600'
+        border: 'border-green-600',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Documentos',
@@ -29,7 +35,9 @@ const linksData = [
         label: 'Documentos',
         img: '<img src="./images/google-docs-icon-2.svg" alt="" class="spinY" >',
         text: 'Documentos',
-        border: 'border-blue-500'
+        border: 'border-blue-500',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Presentaciones',
@@ -37,7 +45,9 @@ const linksData = [
         label: 'Presentaciones',
         img: '<img src="./images/Google_Slides_2020_Logo.svg" alt="" class="spinY" >',
         text: 'Presentaciones',
-        border: 'border-yellow-500'
+        border: 'border-yellow-500',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Calendario',
@@ -45,7 +55,9 @@ const linksData = [
         label: 'Calendario',
         img: '<img src="./images/google-calendar-icon-2020-.svg" alt="" class="spinY" >',
         text: 'Calendario',
-        border: 'border-blue-400'
+        border: 'border-blue-400',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Google Save',
@@ -53,7 +65,9 @@ const linksData = [
         label: 'Google Save',
         img: '<img src="./images/google-save-icon.png" alt="" class="spinY" >',
         text: 'Google Save',
-        border: 'border-white-400'
+        border: 'border-white-400',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Google Dibujos',
@@ -61,7 +75,9 @@ const linksData = [
         label: 'Google Dibujos',
         img: '<img src="./images/icons8-dibujo-google.svg" alt="" class="spinY" >',
         text: 'Google Dibujos',
-        border: 'border-white-400'
+        border: 'border-white-400',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Drive',
@@ -69,7 +85,9 @@ const linksData = [
         label: 'Drive',
         img: '<img src="./images/google-drive-icon-2020.svg" alt="" class="spinY" >',
         text: 'Drive',
-        border: 'border-green-500'
+        border: 'border-green-500',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Traductor',
@@ -77,7 +95,9 @@ const linksData = [
         label: 'Traductor',
         img: '<img src="./images/google-translate-logo.svg" alt="" class="spinY" >',
         text: 'Traductor',
-        border: 'border-gray-500'
+        border: 'border-gray-500',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Gmail',
@@ -85,7 +105,9 @@ const linksData = [
         label: 'Gmail',
         img: '<img src="./images/official-gmail-icon-2020-.svg" alt="" class="spinY" >',
         text: 'Gmail',
-        border: 'border-red-500'
+        border: 'border-red-500',
+        company: 'Google',
+        type: 'productivity'
     },
     {
         id: 'Fotos',
@@ -93,7 +115,9 @@ const linksData = [
         label: 'Fotos',
         img: '<img src="./images/google-photos-6.svg" alt="" class="spin" >',
         text: 'Fotos',
-        border: 'border-yellow-300'
+        border: 'border-yellow-300',
+        company: 'Google',
+        type: 'entertainment'
     },
     {
         id: 'Gemini',
@@ -101,7 +125,9 @@ const linksData = [
         label: 'Gemini',
         img: '<img src="./images/Google_Gemini_icon_2025.svg" alt="" class="spinY" >',
         text: 'Gemini',
-        border: 'border-purple-500'
+        border: 'border-purple-500',
+        company: 'Google',
+        type: 'AI'
     },
     {
         id: 'YouTube',
@@ -109,7 +135,19 @@ const linksData = [
         label: 'YouTube',
         img: '<img src="./images/YouTube_full-color_icon_2017.svg" alt="" class="spinY" >',
         text: 'YouTube',
-        border: 'border-red-600'
+        border: 'border-red-600',
+        company: 'Google',
+        type: 'entertainment'
+    },
+    {
+        id: 'NotebookLM',
+        href: 'https://notebooklm.google.com/',
+        label: 'NotebookLM',
+        img: '<img src="./images/notebooklm.svg" alt="" >',
+        text: 'NotebookLM',
+        border: 'border-yellow-500',
+        company: 'Google',
+        type: 'AI'
     },
     {
         id: 'WhatsApp',
@@ -117,7 +155,59 @@ const linksData = [
         label: 'WhatsApp',
         img: '<img src="./images/whatsapp.svg" alt="" >',
         text: 'WhatsApp',
-        border: 'border-green-600'
+        border: 'border-green-600',
+        company: 'Meta',
+        type: 'communication'
+    },
+    {
+        id: 'Facebook',
+        href: 'https://www.facebook.com/',
+        label: 'Facebook',
+        img: '<img src="./images/facebook-svgrepo-com.svg" alt="" >',
+        text: 'Facebook',
+        border: 'border-blue-600',
+        company: 'Meta',
+        type: 'communication'
+    },
+    {
+        id: 'Instagram',
+        href: 'https://www.instagram.com/',
+        label: 'Instagram',
+        img: '<img src="./images/instagram.svg" alt="" >',
+        text: 'Instagram',
+        border: 'border-pink-500',
+        company: 'Meta',
+        type: 'communication'
+    },
+    {
+        id: 'X',
+        href: 'https://x.com/?lang=es',
+        label: 'X',
+        img: '<img src="./images/twitter-svgrepo-com.svg" alt="" >',
+        text: 'X',
+        border: 'border-blue-400',
+        company: 'X',
+        type: 'communication'
+    },
+    {
+        id: 'ChatGPT',
+        href: 'https://chatgpt.com/',
+        label: 'ChatGPT',
+        img: '<img src="./images/openai.svg" alt="" >',
+        text: 'ChatGPT',
+        border: 'border-blue-600',
+        company: 'OpenAI',
+        type: 'AI'
+    },
+    {
+        id: 'GitHub',
+        href: 'https://github.com/',
+        label: 'GitHub',
+        img: '<img src="./images/github.svg" alt="" >',
+        text: 'GitHub',
+        border: 'border-gray-800',
+        company: 'GitHub',
+        type: 'productivity'
     },
     {
         id: 'Github Copilot',
@@ -125,7 +215,9 @@ const linksData = [
         label: 'Github Copilot',
         img: '<img src="./images/github.svg" alt="" >',
         text: 'Github Copilot',
-        border: 'border-blue-600'
+        border: 'border-blue-600',
+        company: 'Microsoft',
+        type: 'AI'
     },
     {
         id: 'Reddit',
@@ -133,7 +225,9 @@ const linksData = [
         label: 'Reddit',
         img: '<img src="./images/reddit.svg" alt="" >',
         text: 'Reddit',
-        border: 'border-orange-600'
+        border: 'border-orange-600',
+        company: 'Reddit',
+        type: 'entertainment'
     },
     {
         id: 'Atlassian',
@@ -141,7 +235,9 @@ const linksData = [
         label: 'Atlassian',
         img: '<img src="./images/atlassian-svgrepo-com.svg" alt="" >',
         text: 'Atlassian Bitbucket Jira',
-        border: 'border-blue-600'
+        border: 'border-blue-600',
+        company: 'Atlassian',
+        type: 'productivity'
     },
     {
         id: 'Microsoft Copilot',
@@ -149,7 +245,9 @@ const linksData = [
         label: 'Microsoft Copilot',
         img: '<img src="./images/microsoft-copilot.svg" alt="" >',
         text: 'Microsoft Copilot',
-        border: 'border-pink-500'
+        border: 'border-pink-500',
+        company: 'Microsoft',
+        type: 'AI'
     },
     {
         id: 'ChatGPT',
@@ -157,7 +255,9 @@ const linksData = [
         label: 'ChatGPT',
         img: '<img src="./images/chatgpt.svg" alt="" >',
         text: 'ChatGPT',
-        border: 'border-blue-600'
+        border: 'border-blue-600',
+        company: 'OpenAI',
+        type: 'AI'
     },
     {
         id: 'Canva',
@@ -165,40 +265,88 @@ const linksData = [
         label: 'Canva',
         img: '<img src="./images/Canva_Logo_0.svg" alt="" >',
         text: 'Canva',
-        border: 'border-cyan-500'
-    }
-];
-
-
-const linksButton = [
-    {
-        id: 'google',
-        link: 'https://www.google.com.mx/index.html',
-        text: 'Ir a Google &#10138;',
-        class: ''
+        border: 'border-cyan-500',
+        company: 'Canva',
+        type: 'design'
     },
     {
-        id: 'googleia',
-        link: 'https://www.google.com/search?q=&sca_esv=3aa3359d46e30aa6&sxsrf=AE3TifM5Tzp_S8ZNDFfp3SpI02iNn72N7Q%3A1760994213011&source=hp&ei=pKP2aKrQO5u4kPIP96Wh-Ag&iflsig=AOw8s4IAAAAAaPaxtR_llh9m4OcZ3PFvyJehslPKrh1K&aep=22&udm=50&ved=0ahUKEwiqspDU1rOQAxUbHEQIHfdSCI8QteYPCBE&oq=&gs_lp=Egdnd3Mtd2l6IgBIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEByAEAmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcA&sclient=gws-wiz',
-        text: 'Ir a Modo IA &#10138;',
-        class: 'ml-2'
+        id: 'Notion',
+        href: 'https://www.notion.so/',
+        label: 'Notion',
+        img: '<img src="./images/notion-svgrepo-com.svg" alt="" >',
+        text: 'Notion',
+        border: 'border-gray-500',
+        company: 'Other',
+        type: 'productivity'
     },
     {
-        id: 'ForoDev',
-        link: 'https://web.niplito.com.mx:8443/intranet4/Intranet_index.php',
-        text: 'Ir a ForoDev &#10138;',
-        class: 'ml-2'
+        id: 'Figma',
+        href: 'https://www.figma.com/',
+        label: 'Figma',
+        img: '<img src="./images/figma-svgrepo-com.svg" alt="" >',
+        text: 'Figma',
+        border: 'border-purple-500',
+        company: 'Other',
+        type: 'design'
     },
     {
-        id: 'Phpdocs',
-        link: 'file:///var/docker/niplito-prod/php/laravel/docs/api/index.html',
-        text: 'Ir a Phpdocs &#10138;',
-        class: 'ml-2'
+        id: 'Slack',
+        href: 'https://slack.com/signin',
+        label: 'Slack',
+        img: '<img src="./images/slack-svgrepo-com.svg" alt="" >',
+        text: 'Slack',
+        border: 'border-green-500',
+        company: 'Other',
+        type: 'communication'
     },
     {
-        id: 'Portal',
-        link: 'https://webniplito.dyndns.org/login2/',
-        text: 'Ir a Portal Niplito &#10138;',
-        class: 'ml-2'
+        id: 'Asana',
+        href: 'https://app.asana.com/',
+        label: 'Asana',
+        img: '<img src="./images/asana-svgrepo-com.svg" alt="" >',
+        text: 'Asana',
+        border: 'border-pink-500',
+        company: 'Other',
+        type: 'productivity'
+    },
+    {
+        id: 'Trello',
+        href: 'https://trello.com/',
+        label: 'Trello',
+        img: '<img src="./images/Trello.svg" alt="" >',
+        text: 'Trello',
+        border: 'border-blue-500',
+        company: 'Atlassian',
+        type: 'productivity'
+    },
+    {
+        id: 'Zoom',
+        href: 'https://zoom.us/signin',
+        label: 'Zoom',
+        img: '<img src="./images/zoom-svgrepo-com.svg" alt="" >',
+        text: 'Zoom',
+        border: 'border-blue-400',
+        company: 'Other',
+        type: 'communication'
+    },
+    {
+        id: 'Dropbox',
+        href: 'https://www.dropbox.com/login',
+        label: 'Dropbox',
+        img: '<img src="./images/dropbox-svgrepo-com.svg" alt="" >',
+        text: 'Dropbox',
+        border: 'border-blue-500',
+        company: 'Other',
+        type: 'productivity'
+    },
+    {
+        id: 'Spotify',
+        href: 'https://accounts.spotify.com/en/login',
+        label: 'Spotify',
+        img: '<img src="./images/spotify-svgrepo-com.svg" alt="" >',
+        text: 'Spotify',
+        border: 'border-green-600',
+        company: 'Other',
+        type: 'entertainment'
     }
 ];
