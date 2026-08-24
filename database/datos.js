@@ -140,11 +140,11 @@ const linksData = [
         type: 'entertainment'
     },
     {
-        id: 'NotebookLM',
-        href: 'https://notebooklm.google.com/',
-        label: 'NotebookLM',
+        id: 'Gemini Notebook',
+        href: 'https://notebook.google.com/',
+        label: 'Gemini Notebook',
         img: '<img src="./images/notebooklm.svg" alt="" >',
-        text: 'NotebookLM',
+        text: 'Gemini Notebook',
         border: 'border-yellow-500',
         company: 'Google',
         type: 'AI'
